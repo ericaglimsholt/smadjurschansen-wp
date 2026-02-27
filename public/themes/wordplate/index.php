@@ -1,20 +1,15 @@
-<?php get_header(); ?>
+<?php 
+get_header();
 
-<main>
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <article>
-                <header>
-                    <h1><?php the_title(); ?></h1>
-                </header>
+if (have_posts()): while (have_posts()): the_post();
+    if( have_rows('modules') ):
+        while ( have_rows('modules') ) : the_row();
+            if( get_row_layout() == 'text' ) {
+                get_template_part('modules/text', 'page');
+            }
+        endwhile;
+    endif;
+endwhile; else: 
+endif;
 
-                <?php the_content(); ?>
-            </article>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <article>
-            <p>Nothing to see.</p>
-        </article>
-    <?php endif; ?>
-</main>
-
-<?php get_footer(); ?>
+get_footer();
