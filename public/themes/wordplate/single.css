@@ -1,0 +1,32 @@
+.animal-page .facts {
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.animal-page .facts .title {
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.animal-page .facts p {
+  margin-top: 0;
+}
+
+.animal-page .background h2,
+.animal-page .about-animal h2,
+.animal-page .good-to-know h2 {
+  margin-bottom: 0;
+}
+
+.animal-page .background p,
+.animal-page .about-animal p,
+.animal-page .good-to-know p {
+  margin-top: 10px;
+}
+
+.animal-page hr {
+  border-color: #E3E6E4;
+  border-width: 0.5px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
