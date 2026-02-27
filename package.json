@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "dotenv": "^17.2.3",
+    "sqlite3": "^5.1.7",
+    "tailwindcss": "^4.1.17",
+    "vite": "^7.2.6"
+  }
+}

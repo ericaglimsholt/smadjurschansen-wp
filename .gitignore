@@ -1,0 +1,16 @@
+*.log
+.DS_Store
+.env
+/auth.json
+/node_modules
+/public/cache
+/public/languages
+/public/mu-plugins/*
+!/public/mu-plugins/mu-plugins.php
+/public/plugins/*
+!/public/plugins/index.php
+/public/themes/*/assets
+/public/upgrade
+/public/uploads
+/public/wordpress
+/vendor
