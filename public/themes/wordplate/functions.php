@@ -104,6 +104,17 @@ add_action('phpmailer_init', function (PHPMailer $mailer) {
 add_filter('wp_mail_from', fn() => env('MAIL_FROM_ADDRESS', 'hello@example.com'));
 add_filter('wp_mail_from_name', fn() => env('MAIL_FROM_NAME', 'Example'));
 
+// ACF JSON Save & Load
+add_filter('acf/settings/save_json', function ($path) {
+    return get_stylesheet_directory() . '/acf-json';
+});
+
+add_filter('acf/settings/load_json', function ($paths) {
+    unset($paths[0]);
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    return $paths;
+});
+
 // Update permalink structure.
 add_action('after_setup_theme', function () {
     if (get_option('permalink_structure') !== '/%postname%/') {
