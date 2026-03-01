@@ -1,15 +1,16 @@
-<?php 
-get_header();
+<style>
+  <?php include 'templates/base.css'; ?>
+  <?php include 'single.css'; ?>
+</style>
 
-if (have_posts()): while (have_posts()): the_post();
-    if( have_rows('modules') ):
-        while ( have_rows('modules') ) : the_row();
-            if( get_row_layout() == 'text' ) {
-                get_template_part('modules/text', 'page');
-            }
-        endwhile;
-    endif;
-endwhile; else: 
-endif;
+<?php get_header(); ?>
 
-get_footer();
+  <div class="row cta-last">
+    <div class="column column--12 column__tablet--12 column__mobile--12">
+        <h1>Välkommen till en ny version av hemsidan!</h1>
+        <p>Just nu håller vi på att testar delar av vår nya hemsida och därför kan det se annorlunda ut.</p>
+        <a class="button primary" href="https://www.smadjurschansen.se/">Gå till gamla sidan</a>
+    </div>
+  </div>
+
+</div>
