@@ -376,8 +376,13 @@ header {
     align-items: center;
     padding: 1rem 2rem;
     background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
     position: relative;
+}
+
+@media screen and (max-width: 39.9375em) {
+  header {
+    border-bottom: 1px solid #e0e0e0;
+  }
 }
 
 /* Logo */
