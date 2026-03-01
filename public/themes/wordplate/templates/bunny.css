@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+.bunnies .header.no-description {
+  margin-bottom: 60px;
+}
+
 .bunnies .header h1 {
   text-align: center;
   width: 100%;
