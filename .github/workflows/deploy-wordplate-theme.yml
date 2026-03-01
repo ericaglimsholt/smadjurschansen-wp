@@ -2,7 +2,7 @@ name: Deploy WP theme (wordplate) to djur.smadjurschansen.se
 
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
     paths:
       - "public/themes/wordplate/**"
 
