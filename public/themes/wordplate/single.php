@@ -52,7 +52,7 @@
           <div class="fact">
             <p class="title">Ålder</p>
             <p><?= the_field('alder'); ?></p>
-          </div>
+          </div> 
         <?php endif; ?>
         <?php if( get_field('kon') ): ?>
           <div class="fact">
