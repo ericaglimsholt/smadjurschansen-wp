@@ -84,6 +84,12 @@
             <p><?= the_field('vill_bo'); ?></p>
           </div>
         <?php endif; ?>
+        <?php if( get_field('djurslag') ): ?>
+          <div class="fact">
+            <p class="title">Djurslag</p>
+            <p><?= the_field('djurslag'); ?></p>
+          </div>
+        <?php endif; ?>
         <?php if( get_field('ras') ): ?>
           <div class="fact">
             <p class="title">Ras</p>
