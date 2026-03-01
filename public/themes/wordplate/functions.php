@@ -30,6 +30,9 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script_module('wordplate', get_theme_file_uri('assets/' . $manifest['resources/js/index.js']['file']));
         wp_enqueue_style('wordplate', get_theme_file_uri('assets/' . $manifest['resources/js/index.js']['css'][0]));
     }
+    
+    // Always load theme's main stylesheet for custom header styles
+    wp_enqueue_style('theme-style', get_stylesheet_uri(), [], '1.0.0');
 });
 
 // Remove admin menu items.

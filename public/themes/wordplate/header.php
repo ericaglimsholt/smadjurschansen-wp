@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php wp_head(); ?>
+    <style>
+        <?php include 'templates/base.css'; ?>
+    </style>
 </head>
 
 <body <?php body_class(); ?>>
@@ -35,7 +38,8 @@
             </svg>
         </a>
 
-        <div class="dropdown-menu">
+        <!-- Desktop navigation -->
+         <div class="dropdown-menu hide-for-small">
             <a class="button primary">
                 Adoptera ett djur
             </a>
@@ -44,12 +48,63 @@
                 <?php wp_nav_menu(['theme_location' => 'navigation']); ?>
             </div>
         </div>
+
+        <!-- Mobile hamburger menu -->
+        <div class="mobile-nav">
+            <button class="hamburger-menu" id="hamburger-toggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <div class="mobile-dropdown" id="mobile-dropdown">
+                <?php wp_nav_menu(['theme_location' => 'navigation', 'container' => false, 'menu_class' => 'mobile-menu-list']); ?>
+            </div>
+        </div>
        
     </header>
 
     <script>
-        // Dropdown functionality
+        // Mobile hamburger menu functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerToggle = document.getElementById('hamburger-toggle');
+            const mobileDropdown = document.getElementById('mobile-dropdown');
+            const body = document.body;
+
+            if (hamburgerToggle && mobileDropdown) {
+                hamburgerToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Toggle hamburger animation
+                    hamburgerToggle.classList.toggle('active');
+                    
+                    // Toggle mobile menu
+                    mobileDropdown.classList.toggle('active');
+                    
+                    // Prevent body scroll when menu is open
+                    body.classList.toggle('menu-open');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!hamburgerToggle.contains(e.target) && !mobileDropdown.contains(e.target)) {
+                        hamburgerToggle.classList.remove('active');
+                        mobileDropdown.classList.remove('active');
+                        body.classList.remove('menu-open');
+                    }
+                });
+
+                // Close menu on window resize if it goes to desktop
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        hamburgerToggle.classList.remove('active');
+                        mobileDropdown.classList.remove('active');
+                        body.classList.remove('menu-open');
+                    }
+                });
+            }
+
+            // Desktop dropdown functionality
             const dropdownButton = document.querySelector('.dropdown-menu .button');
             const dropdownContent = document.querySelector('.dropdown-content');
 
