@@ -390,10 +390,6 @@ header {
   font-family: 'DM Sans', sans-serif;
 }
 
-.dropdown-menu:hover .dropdown-content {
-  /* Removed hover functionality - now uses click via JavaScript */
-}
-
 .dropdown-content.active {
   display: block;
 }

@@ -19,7 +19,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y rsync sshpass
 
-      - name: Deploy theme via SSH (rsync)
+      - name: Debug SSH path + ensure target dir exists
         env:
           HOST: ${{ secrets.DEPLOY_HOST }}
           USER: ${{ secrets.DEPLOY_USER }}
@@ -27,7 +27,24 @@ jobs:
           PORT: ${{ secrets.DEPLOY_PORT }}
           TARGET: ${{ secrets.DEPLOY_PATH }}
         run: |
-          sshpass -p "$PASS" rsync -az --delete \
+          sshpass -p "$PASS" ssh -p "$PORT" -o StrictHostKeyChecking=no "$USER@$HOST" "
+            echo '--- Connected ---';
+            echo 'PWD:'; pwd;
+            echo 'List root:'; ls -la;
+            echo '--- Creating target dir ---';
+            mkdir -p '$TARGET';
+            echo 'Target exists, listing parent:'; ls -la \"$(dirname "$TARGET")\";
+          "
+
+      - name: Deploy theme via rsync over SSH
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER: ${{ secrets.DEPLOY_USER }}
+          PASS: ${{ secrets.DEPLOY_PASS }}
+          PORT: ${{ secrets.DEPLOY_PORT }}
+          TARGET: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          sshpass -p "$PASS" rsync -az --delete -vv \
             -e "ssh -p $PORT -o StrictHostKeyChecking=no" \
             public/themes/wordplate/ \
             "$USER@$HOST:$TARGET"
