@@ -1,14 +1,24 @@
-.animal-page .facts {
-  /* display: flex;
-  justify-content: space-between; */
+.animal-page .facts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.animal-page .facts .title {
+.animal-page .fact {
+  width: 50%;
+}
+
+@media screen and (max-width: 63.9375em) {
+  .animal-page .fact {
+    width: 100%;
+  }
+}
+
+.animal-page .fact .title {
   font-weight: 500;
   margin-bottom: 0;
 }
 
-.animal-page .facts p {
+.animal-page .fact p {
   margin-top: 0;
 }
 
@@ -29,4 +39,126 @@
   border-width: 0.5px;
   margin-top: 40px;
   margin-bottom: 30px;
+  opacity: 0.4;
+}
+
+.animal-page .cta-column {
+  display: flex;
+  justify-content: end;
+  align-items: baseline;
+}
+
+.animal-page .cta-wrapper {
+  border: 1px solid #E3E6E4;
+  border-radius: 16px;
+  padding: 30px;
+  width: 67%;
+}
+
+@media screen and (max-width: 63.9375em) {
+  .animal-page .cta-wrapper {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+.animal-page .cta-wrapper h3 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.animal-page .cta-wrapper .button {
+  width: auto;
+  text-align: center;
+}
+
+.animal-page .cta-wrapper .button.secondary {
+  margin-bottom: 10px;
+}
+
+.animal-page .image-header {
+  margin-bottom: 40px;
+}
+
+.animal-page img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  aspect-ratio: 1 / 1;
+}
+
+.animal-page .image-header .image-container {
+  position: relative;
+  width: 100%;
+}
+
+.animal-page .image-header .image-container .button {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.animal-page h2.fact {
+  margin-top: 0;
+}
+
+.animal-page .all-image-header {
+  margin-top: 60px;
+}
+
+.animal-page .all-image-header img {
+  margin-bottom: 40px;
+  aspect-ratio: auto;
+}
+
+.animal-page .all-image-header .all-image-wrapper {
+  column-count: 4;
+  column-gap: 16px;
+}
+
+.animal-page .all-image-header .all-image-wrapper img {
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Tablet masonry */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .animal-page .all-image-header .all-image-wrapper {
+    column-count: 2;
+  }
+}
+
+/* Mobile masonry */
+@media screen and (max-width: 39.9375em) {
+  .animal-page .all-image-header .all-image-wrapper {
+    column-count: 1;
+  }
+}
+
+@media screen and (max-width: 63.9375em) {
+  .animal-page .all-image-header img {
+    margin-bottom: 20px;
+  }
+}
+
+.animal-page .cta-last {
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+
+.animal-page .cta-last .column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.animal-page .cta-last h3 {
+  margin-bottom: 0;
+}
+
+.animal-page .cta-last p {
+  margin-top: 10px;
 }
