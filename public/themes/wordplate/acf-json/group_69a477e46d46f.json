@@ -87,6 +87,27 @@
             "append": ""
         },
         {
+            "key": "field_69a4a7a11d2e7",
+            "label": "Djurslag",
+            "name": "djurslag",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_69a477e46edcb",
             "label": "Ras",
             "name": "ras",
@@ -207,5 +228,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772388324
+    "modified": 1772398506
 }

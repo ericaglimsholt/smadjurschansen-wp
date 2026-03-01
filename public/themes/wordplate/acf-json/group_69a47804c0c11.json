@@ -66,9 +66,9 @@
             "append": ""
         },
         {
-            "key": "field_69a47804c277c",
-            "label": "Kastrerad",
-            "name": "kastrerad",
+            "key": "field_69a4a750ad47c",
+            "label": "Djurslag",
+            "name": "djurslag",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -207,5 +207,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772388324
+    "modified": 1772398460
 }

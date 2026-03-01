@@ -12,7 +12,7 @@ Template Name: Reptiler
 <?php
 $bunnies = array (
   'numberposts'	=> -1,
-  'post_type'		=> 'reptiler',
+  'post_type'		=> 'reptil',
 );
 
 $the_query = new WP_Query( $bunnies );
