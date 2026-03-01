@@ -34,7 +34,7 @@ $the_query = new WP_Query( $bunnies );
                 <a class="button" href="<?= get_the_permalink(); ?>">Se presentation</a>
               </div>
               <h3><?= get_the_title(); ?></h3>
-              <p>Kanin · <?= the_field('kon'); ?> · <?= the_field('stad'); ?></p>
+              <p>Fågel · <?= the_field('kon'); ?> · <?= the_field('stad'); ?></p>
             </div>
           </div>
         <?php endwhile; ?>
