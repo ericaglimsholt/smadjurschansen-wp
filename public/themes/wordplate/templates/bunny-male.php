@@ -11,8 +11,9 @@ Template Name: Kanin hanar
 
 <?php
 $bunnies = array (
-  'numberposts'	=> -1,
+  'posts_per_page' => -1,
   'post_type'		=> 'kaniner-hanar',
+  'post_status'    => 'publish'
 );
 
 $the_query = new WP_Query( $bunnies );
