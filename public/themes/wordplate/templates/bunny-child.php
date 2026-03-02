@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Kanin ungar
+Template Name: Kanin honor
 */
 ?>
 
@@ -11,7 +11,8 @@ Template Name: Kanin ungar
 
 <?php
 $bunnies = array (
-  'numberposts'	=> -1,
+  'posts_per_page' => -1,
+  'post_status'    => 'publish',
   'post_type'		=> 'kaniner-ungar',
 );
 

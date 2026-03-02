@@ -11,7 +11,8 @@ Template Name: Marsvin honor
 
 <?php
 $bunnies = array (
-  'numberposts'	=> -1,
+  'posts_per_page' => -1,
+  'post_status'    => 'publish',
   'post_type'		=> 'marsvin-honor',
 );
 

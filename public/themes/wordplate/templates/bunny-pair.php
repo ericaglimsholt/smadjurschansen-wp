@@ -11,7 +11,8 @@ Template Name: Kanin par
 
 <?php
 $bunnies = array (
-  'numberposts'	=> -1,
+  'posts_per_page' => -1,
+  'post_status'    => 'publish',
   'post_type'		=> 'kaniner-par',
 );
 
