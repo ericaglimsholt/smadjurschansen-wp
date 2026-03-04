@@ -3,6 +3,37 @@
     "title": "Fågel sidinfo",
     "fields": [
         {
+            "key": "field_69a8aef62eea4",
+            "label": "Status",
+            "name": "status",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Tillgänglig": "Tillgänglig",
+                "Har intresse": "Har intresse",
+                "Bokad": "Bokad",
+                "Under utredning": "Under utredning"
+            },
+            "default_value": false,
+            "return_format": "label",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_69a477e46edba",
             "label": "Stad",
             "name": "stad",
@@ -228,5 +259,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772398506
+    "modified": 1772662536
 }
