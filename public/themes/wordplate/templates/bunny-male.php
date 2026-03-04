@@ -13,7 +13,7 @@ Template Name: Kanin hanar
 $bunnies = array (
   'posts_per_page' => -1,
   'post_status'    => 'publish',
-  'post_type'      => 'kaniner-hanar',
+  'post_type'		=> 'kaniner-hanar',
   'meta_key'       => 'status',
   'orderby'        => 'meta_value',
   'order'          => 'ASC',
