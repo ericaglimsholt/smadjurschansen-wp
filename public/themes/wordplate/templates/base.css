@@ -147,6 +147,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "DM Sans", sans-serif;
 }
 
+* {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+}
+
 
 /* =========================
   Tablet
@@ -569,4 +574,38 @@ header a svg {
 
 .dropdown-menu .button {
   cursor: pointer;
+}
+
+.status {
+  border-radius: 16px;
+  font-size: 18px;
+  width: fit-content;
+  padding: 2px 13px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.status.tillganglig {
+  background-color: #C0DECF;
+  color: #324D40;
+}
+
+.status.bokad {
+  background-color: #FED1BC;
+  color: #743E26;
+}
+
+.status.har-intresse {
+  background-color: #EFF3F1;
+  color: #324D40;
+}
+
+.status.under-utredning {
+  background-color: #FEF0BC;
+  color: #544A26;
+}
+
+.status svg {
+  margin-right: 5px;
 }
