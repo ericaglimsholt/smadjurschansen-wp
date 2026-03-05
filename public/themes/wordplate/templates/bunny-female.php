@@ -48,8 +48,8 @@ if ($the_query->have_posts()) {
 
 <div class="bunnies">
   <div class="row header">
-    <h1>Kanin honor tillgängliga för adoption</h1>
-    <p>Alla kaniner adopteras ut kastrerade (om kaninen har åldern inne), vaccinerade, tandkollade och parasittestade. Här nedan presenterar vi dem kanin hanar som just nu söker hem.</p>
+    <h1>Kaninhonor tillgängliga för adoption</h1>
+    <p>Alla kaniner adopteras ut kastrerade (om kaninen har åldern inne), vaccinerade, tandkollade och parasittestade. Här nedan presenterar vi de kaninhonor som just nu söker hem.</p>
   </div>
   <div class="row">
       <?php if( $the_query->have_posts() ): ?>
