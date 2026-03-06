@@ -21,7 +21,7 @@
 
     <div class="test">
         <div class="test-info">
-            <p>Just nu testar vi delar av vår nya hemsida. Därför ser det annorlunda ut. <a href="https://www.smadjurschansen.se/">Gå tillbaka till vanliga hemsidan</a></p>
+            <p>Just nu testar vi delar av vår nya hemsida. Därför ser det annorlunda ut.</p>
         </div>
     </div>
 
