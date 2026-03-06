@@ -16,6 +16,10 @@
   margin-top: 10px;
 }
 
+.home .test-info p {
+  margin-top: 0px;
+}
+
 .home .buttons {
   display: flex;
   flex-wrap: wrap;
