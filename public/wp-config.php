@@ -17,10 +17,10 @@ define('WP_ENVIRONMENT_TYPE', env('WP_ENVIRONMENT_TYPE', 'production'));
 define('WP_DEFAULT_THEME', env('WP_DEFAULT_THEME', 'wordplate'));
 
 // For developers: WordPress debugging mode.
-$isDebugModeEnabled = env('WP_DEBUG', false);
+$isDebugModeEnabled = env('WP_DEBUG', true);
 define('WP_DEBUG', $isDebugModeEnabled);
-define('WP_DEBUG_LOG', env('WP_DEBUG_LOG', false));
-define('WP_DEBUG_DISPLAY', env('WP_DEBUG_DISPLAY', $isDebugModeEnabled));
+define('WP_DEBUG_LOG', env('WP_DEBUG_LOG', true));
+define('WP_DEBUG_DISPLAY', env('WP_DEBUG_DISPLAY', false));
 define('SCRIPT_DEBUG', env('SCRIPT_DEBUG', $isDebugModeEnabled));
 
 // Database configuration with name, username, password, hostname, charset, and collation.
@@ -65,8 +65,8 @@ define('DISABLE_WP_CRON', env('DISABLE_WP_CRON', false));
 // Prevent file editing from the dashboard.
 define('DISALLOW_FILE_EDIT', env('DISALLOW_FILE_EDIT', true));
 
-// Disable plugin and theme updates and installation from the dashboard.
-// define('DISALLOW_FILE_MODS', env('DISALLOW_FILE_MODS', true));
+// Enable plugin and theme updates and installation from the dashboard.
+define('DISALLOW_FILE_MODS', env('DISALLOW_FILE_MODS', false));
 
 // Clean up WordPress image edits.
 define('IMAGE_EDIT_OVERWRITE', env('IMAGE_EDIT_OVERWRITE', true));
