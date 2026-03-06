@@ -126,40 +126,39 @@ add_action('after_setup_theme', function () {
     }
 });
 
-// Fix WP Form compatibility issues caused by Headache plugin
+// Ensure WP Form and similar plugins work correctly
 add_action('init', function () {
-    // Re-enable REST API for WP Forms
-    add_filter('rest_endpoints', function ($endpoints) {
-        // Allow WP Forms REST endpoints even for non-logged users
-        if (isset($_REQUEST['wpforms']) || (isset($_POST['wpforms']) && !empty($_POST['wpforms']))) {
-            // Restore basic REST functionality for forms
-            return $endpoints;
-        }
-        return $endpoints;
-    }, 5); // Higher priority than Headache
-});
+    // Force jQuery to load early for form functionality
+    if (is_admin() || (isset($_POST['wpforms']) || isset($_GET['wpforms']))) {
+        wp_enqueue_script('jquery');
+    }
+}, 1);
 
-// Ensure jQuery and form scripts load properly
+// Ensure scripts load properly for forms
 add_action('wp_enqueue_scripts', function () {
-    // Force jQuery to load for forms
+    // Ensure jQuery is available
     wp_enqueue_script('jquery');
     
-    // Re-add emoji detection if WP Forms is present
-    if (function_exists('wpforms') || class_exists('WPForms')) {
-        // Re-enable emoji detection script which forms might need
-        add_action('wp_head', 'print_emoji_detection_script', 7);
+    // Allow form-related scripts to load without interference
+    if (isset($_POST['wpforms']) || isset($_GET['wpforms']) || 
+        (function_exists('wpforms') || class_exists('WPForms'))) {
+        
+        // Re-enable any scripts that might be needed for forms
+        if (!wp_script_is('wp-util', 'enqueued')) {
+            wp_enqueue_script('wp-util');
+        }
     }
-}, 5); // Load before Headache removes things
+}, 1);
 
-// Allow AJAX for forms
+// Ensure AJAX functionality works for forms
 add_action('wp_ajax_wpforms_submit', '__return_true');
 add_action('wp_ajax_nopriv_wpforms_submit', '__return_true');
 
-// Ensure form nonces work properly
-add_filter('nonce_user_logged_out', function ($uid, $action) {
-    // Allow nonces for form submissions
-    if (strpos($action, 'wpforms') !== false) {
-        return 0; // Use consistent user ID for non-logged users
+// Fix potential nonce issues with forms
+add_filter('wp_nonce_tick', function($nonce_life) {
+    // Extend nonce life for form submissions
+    if (isset($_POST['wpforms']) || isset($_GET['wpforms'])) {
+        return HOUR_IN_SECONDS * 12; // 12 hours
     }
-    return $uid;
-}, 10, 2);
+    return $nonce_life;
+});
