@@ -1,7 +1,7 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
 
 // Register theme defaults.
 add_action('after_setup_theme', function () {
@@ -90,40 +90,40 @@ add_action('login_head', function () {
 });
 
 // Register custom SMTP credentials with fallback for forms.
-add_action('phpmailer_init', function (PHPMailer $mailer) {
-    // Check if this is a form submission - use simpler mail method
-    if (isset($_POST['wpforms']) || isset($_GET['wpforms']) || 
-        (isset($_POST['action']) && strpos($_POST['action'], 'form') !== false)) {
+// add_action('phpmailer_init', function (PHPMailer $mailer) {
+//     // Check if this is a form submission - use simpler mail method
+//     if (isset($_POST['wpforms']) || isset($_GET['wpforms']) || 
+//         (isset($_POST['action']) && strpos($_POST['action'], 'form') !== false)) {
         
-        // Use PHP's built-in mail() function for forms
-        $mailer->isMail();
-        $mailer->CharSet = 'UTF-8';
-        return $mailer;
-    }
+//         // Use PHP's built-in mail() function for forms
+//         $mailer->isMail();
+//         $mailer->CharSet = 'UTF-8';
+//         return $mailer;
+//     }
     
-    // Only use SMTP if we have proper credentials
-    if (env('MAIL_HOST') && env('MAIL_USERNAME') && env('MAIL_PASSWORD')) {
-        $mailer->isSMTP();
-        $mailer->SMTPAutoTLS = false;
-        $mailer->SMTPAuth = true;
-        $mailer->SMTPDebug = env('WP_DEBUG') ? SMTP::DEBUG_SERVER : SMTP::DEBUG_OFF;
-        $mailer->SMTPSecure = env('MAIL_ENCRYPTION', 'tls');
-        $mailer->Debugoutput = 'error_log';
-        $mailer->Host = env('MAIL_HOST');
-        $mailer->Port = env('MAIL_PORT', 587);
-        $mailer->Username = env('MAIL_USERNAME');
-        $mailer->Password = env('MAIL_PASSWORD');
-    } else {
-        // Fallback to PHP mail if no SMTP credentials
-        $mailer->isMail();
-        $mailer->CharSet = 'UTF-8';
-    }
+//     // Only use SMTP if we have proper credentials
+//     if (env('MAIL_HOST') && env('MAIL_USERNAME') && env('MAIL_PASSWORD')) {
+//         $mailer->isSMTP();
+//         $mailer->SMTPAutoTLS = false;
+//         $mailer->SMTPAuth = true;
+//         $mailer->SMTPDebug = env('WP_DEBUG') ? SMTP::DEBUG_SERVER : SMTP::DEBUG_OFF;
+//         $mailer->SMTPSecure = env('MAIL_ENCRYPTION', 'tls');
+//         $mailer->Debugoutput = 'error_log';
+//         $mailer->Host = env('MAIL_HOST');
+//         $mailer->Port = env('MAIL_PORT', 587);
+//         $mailer->Username = env('MAIL_USERNAME');
+//         $mailer->Password = env('MAIL_PASSWORD');
+//     } else {
+//         // Fallback to PHP mail if no SMTP credentials
+//         $mailer->isMail();
+//         $mailer->CharSet = 'UTF-8';
+//     }
     
-    return $mailer;
-});
+//     return $mailer;
+// });
 
-add_filter('wp_mail_from', fn() => env('MAIL_FROM_ADDRESS', get_option('admin_email', 'noreply@' . $_SERVER['HTTP_HOST'])));
-add_filter('wp_mail_from_name', fn() => env('MAIL_FROM_NAME', get_bloginfo('name')));
+// add_filter('wp_mail_from', fn() => env('MAIL_FROM_ADDRESS', get_option('admin_email', 'noreply@' . $_SERVER['HTTP_HOST'])));
+// add_filter('wp_mail_from_name', fn() => env('MAIL_FROM_NAME', get_bloginfo('name')));
 
 // ACF JSON Save & Load
 add_filter('acf/settings/save_json', function ($path) {
@@ -145,12 +145,12 @@ add_action('after_setup_theme', function () {
 });
 
 // Ensure WP Form and similar plugins work correctly
-add_action('init', function () {
-    // Force jQuery to load early for form functionality
-    if (is_admin() || (isset($_POST['wpforms']) || isset($_GET['wpforms']))) {
-        wp_enqueue_script('jquery');
-    }
-}, 1);
+// add_action('init', function () {
+//     // Force jQuery to load early for form functionality
+//     if (is_admin() || (isset($_POST['wpforms']) || isset($_GET['wpforms']))) {
+//         wp_enqueue_script('jquery');
+//     }
+// }, 1);
 
 // Ensure scripts load properly for forms
 add_action('wp_enqueue_scripts', function () {
@@ -171,119 +171,119 @@ add_action('wp_enqueue_scripts', function () {
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_filter('the_content_feed', 'wp_staticize_emoji');
         remove_filter('comment_text_rss', 'wp_staticize_emoji');
-        remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+        // remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
     }
 }, 1);
 
 // Ensure AJAX functionality works for forms
-add_action('wp_ajax_wpforms_submit', '__return_true');
-add_action('wp_ajax_nopriv_wpforms_submit', '__return_true');
+// add_action('wp_ajax_wpforms_submit', '__return_true');
+// add_action('wp_ajax_nopriv_wpforms_submit', '__return_true');
 
 // Add specific AJAX handlers for WP Forms
-add_action('wp_ajax_wpforms_submit', 'wpforms_process_ajax');
-add_action('wp_ajax_nopriv_wpforms_submit', 'wpforms_process_ajax');
+// add_action('wp_ajax_wpforms_submit', 'wpforms_process_ajax');
+// add_action('wp_ajax_nopriv_wpforms_submit', 'wpforms_process_ajax');
 
-function wpforms_process_ajax() {
-    // Let WP Forms handle its own AJAX if the plugin exists
-    if (function_exists('wpforms')) {
-        return;
-    }
+// function wpforms_process_ajax() {
+//     // Let WP Forms handle its own AJAX if the plugin exists
+//     if (function_exists('wpforms')) {
+//         return;
+//     }
     
-    // Basic fallback - log the attempt
-    if (defined('WP_DEBUG') && WP_DEBUG && defined('WP_DEBUG_LOG') && WP_DEBUG_LOG) {
-        error_log('WP Forms AJAX called but plugin not detected');
-        error_log('POST data: ' . print_r($_POST, true));
-    }
+//     // Basic fallback - log the attempt
+//     if (defined('WP_DEBUG') && WP_DEBUG && defined('WP_DEBUG_LOG') && WP_DEBUG_LOG) {
+//         error_log('WP Forms AJAX called but plugin not detected');
+//         error_log('POST data: ' . print_r($_POST, true));
+//     }
     
-    wp_die();
-}
+//     wp_die();
+// }
 
 // Fix potential nonce issues with forms
-add_filter('wp_nonce_tick', function($nonce_life) {
-    // Extend nonce life for form submissions
-    if (isset($_POST['wpforms']) || isset($_GET['wpforms'])) {
-        return HOUR_IN_SECONDS * 12; // 12 hours
-    }
-    return $nonce_life;
-});
+// add_filter('wp_nonce_tick', function($nonce_life) {
+//     // Extend nonce life for form submissions
+//     if (isset($_POST['wpforms']) || isset($_GET['wpforms'])) {
+//         return HOUR_IN_SECONDS * 12; // 12 hours
+//     }
+//     return $nonce_life;
+// });
 
 // Fix wp_mail issues for forms
-add_filter('wp_mail', function($args) {
-    // Ensure proper headers for form emails
-    if (isset($_POST['wpforms']) || isset($_GET['wpforms'])) {
-        if (!isset($args['headers']) || !is_array($args['headers'])) {
-            $args['headers'] = [];
-        }
+// add_filter('wp_mail', function($args) {
+//     // Ensure proper headers for form emails
+//     if (isset($_POST['wpforms']) || isset($_GET['wpforms'])) {
+//         if (!isset($args['headers']) || !is_array($args['headers'])) {
+//             $args['headers'] = [];
+//         }
         
-        // Add content type if not set
-        $has_content_type = false;
-        foreach ($args['headers'] as $header) {
-            if (stripos($header, 'content-type') !== false) {
-                $has_content_type = true;
-                break;
-            }
-        }
+//         // Add content type if not set
+//         $has_content_type = false;
+//         foreach ($args['headers'] as $header) {
+//             if (stripos($header, 'content-type') !== false) {
+//                 $has_content_type = true;
+//                 break;
+//             }
+//         }
         
-        if (!$has_content_type) {
-            $args['headers'][] = 'Content-Type: text/html; charset=UTF-8';
-        }
-    }
+//         if (!$has_content_type) {
+//             $args['headers'][] = 'Content-Type: text/html; charset=UTF-8';
+//         }
+//     }
     
-    return $args;
-});
+//     return $args;
+// });
 
 // Debug mail issues
-add_action('wp_mail_failed', function($wp_error) {
-    if (defined('WP_DEBUG') && WP_DEBUG && defined('WP_DEBUG_LOG') && WP_DEBUG_LOG) {
-        error_log('Mail failed: ' . $wp_error->get_error_message());
-    }
-});
+// add_action('wp_mail_failed', function($wp_error) {
+//     if (defined('WP_DEBUG') && WP_DEBUG && defined('WP_DEBUG_LOG') && WP_DEBUG_LOG) {
+//         error_log('Mail failed: ' . $wp_error->get_error_message());
+//     }
+// });
 
 // Test email function - can be called to debug email issues
-function test_wp_mail() {
-    $to = get_option('admin_email');
-    $subject = 'Test Email from ' . get_bloginfo('name');
-    $message = 'This is a test email to verify email functionality.';
+// function test_wp_mail() {
+//     $to = get_option('admin_email');
+//     $subject = 'Test Email from ' . get_bloginfo('name');
+//     $message = 'This is a test email to verify email functionality.';
     
-    $result = wp_mail($to, $subject, $message);
+//     $result = wp_mail($to, $subject, $message);
     
-    if ($result) {
-        error_log('Test email sent successfully to: ' . $to);
-    } else {
-        error_log('Test email failed to send to: ' . $to);
-    }
+//     if ($result) {
+//         error_log('Test email sent successfully to: ' . $to);
+//     } else {
+//         error_log('Test email failed to send to: ' . $to);
+//     }
     
-    return $result;
-}
+//     return $result;
+// }
 
 // Add this to wp-admin for debugging
-add_action('wp_ajax_test_mail', function() {
-    $result = test_wp_mail();
-    wp_die($result ? 'Email sent successfully!' : 'Email failed to send!');
-});
+// add_action('wp_ajax_test_mail', function() {
+//     $result = test_wp_mail();
+//     wp_die($result ? 'Email sent successfully!' : 'Email failed to send!');
+// });
 
 // Ensure all form-related functionality works
-add_action('wp_loaded', function() {
-    // Remove any potential conflicts from Headache plugin for forms
-    if (isset($_POST['wpforms']) || isset($_GET['wpforms']) || 
-        (isset($_POST['action']) && strpos($_POST['action'], 'form') !== false) ||
-        (defined('DOING_AJAX') && DOING_AJAX)) {
+// add_action('wp_loaded', function() {
+//     // Remove any potential conflicts from Headache plugin for forms
+//     if (isset($_POST['wpforms']) || isset($_GET['wpforms']) || 
+//         (isset($_POST['action']) && strpos($_POST['action'], 'form') !== false) ||
+//         (defined('DOING_AJAX') && DOING_AJAX)) {
         
-        // Ensure WordPress core functions are available
-        if (!function_exists('wp_handle_upload')) {
-            require_once(ABSPATH . 'wp-admin/includes/file.php');
-        }
+//         // Ensure WordPress core functions are available
+//         if (!function_exists('wp_handle_upload')) {
+//             require_once(ABSPATH . 'wp-admin/includes/file.php');
+//         }
         
-        if (!function_exists('wp_verify_nonce')) {
-            require_once(ABSPATH . WPINC . '/pluggable.php');
-        }
+//         if (!function_exists('wp_verify_nonce')) {
+//             require_once(ABSPATH . WPINC . '/pluggable.php');
+//         }
         
-        // Ensure AJAX URL is available
-        if (!wp_script_is('wp-util', 'enqueued')) {
-            wp_enqueue_script('wp-util');
-        }
-    }
-});
+//         // Ensure AJAX URL is available
+//         if (!wp_script_is('wp-util', 'enqueued')) {
+//             wp_enqueue_script('wp-util');
+//         }
+//     }
+// });
 
 // Make sure admin-ajax.php works properly
 add_action('wp_head', function() {
