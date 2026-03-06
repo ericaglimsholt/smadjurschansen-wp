@@ -1,0 +1,26 @@
+.home a {
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.home a.button {
+  text-decoration: none;
+}
+
+.home h2 {
+  margin-bottom: 0;
+}
+
+.home p {
+  margin-top: 10px;
+}
+
+.home .buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home .buttons .button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
