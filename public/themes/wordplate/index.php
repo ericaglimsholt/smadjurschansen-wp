@@ -23,7 +23,7 @@
           <a class="button primary" href="https://djur.smadjurschansen.se/kaniner-par/">Kaniner (par)</a>
           <a class="button primary" href="https://djur.smadjurschansen.se/marsvin-hanar/">Marsvin (hanar)</a>
           <a class="button primary" href="https://djur.smadjurschansen.se/marsvin-par/">Marsvin (par)</a>
-          <a class="button primary" href="https://djur.smadjurschansen.se/kaniner-hanar/">Gnagare</a>
+          <a class="button primary" href="https://djur.smadjurschansen.se/gnagare/">Gnagare</a>
           <a class="button primary" href="https://djur.smadjurschansen.se/fagel/">Fåglar</a>
           <a class="button primary" href="https://djur.smadjurschansen.se/reptil/">Reptiler</a>
         </a>
