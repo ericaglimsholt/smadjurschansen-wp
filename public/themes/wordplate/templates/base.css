@@ -137,6 +137,14 @@ p {
   font-weight: 300;
 }
 
+p a {
+  line-height: 27px;
+  font-size: 18px;
+  color: var(--text-primary);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+}
+
 p.strong {
   color: #000;
 }
