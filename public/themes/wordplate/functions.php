@@ -104,8 +104,8 @@ add_action('login_head', function () {
 //     return $mailer;
 // });
 
-add_filter('wp_mail_from', fn() => env('MAIL_FROM_ADDRESS', 'info@smadjurschansen.se'));
-add_filter('wp_mail_from_name', fn() => env('MAIL_FROM_NAME', 'Smådjurschansen'));
+add_filter('wp_mail_from', fn() => 'info@smadjurschansen.se');
+add_filter('wp_mail_from_name', fn() => 'Smådjurschansen');
 
 // ACF JSON Save & Load
 add_filter('acf/settings/save_json', function ($path) {
