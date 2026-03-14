@@ -347,7 +347,8 @@ body {
 /* TEST */
 
 .test {
-  background-color: #C0DECF;
+  background-color: #324D40;
+  color: #C0DECF;
   padding: 0px 10px;
 }
 
@@ -388,7 +389,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #fff;
     position: relative;
 }
 
@@ -694,5 +694,28 @@ input.error {
 }
 
 .callout p {
+  margin-top: 10px;
+}
+
+/* =========================
+  HERO
+========================= */
+
+.hero {
+  background-color: #C0DECF;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  padding-top: 160px;
+  padding-bottom: 60px;
+}
+
+.hero h1 {
+  margin-bottom: 0;
+}
+
+.hero p {
   margin-top: 10px;
 }
