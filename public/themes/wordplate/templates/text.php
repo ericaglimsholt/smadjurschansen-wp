@@ -10,7 +10,7 @@ Template Name: Text sida
 
 <?php get_header(); ?>
 
-<div class="text-page" style="font-size: 18px;">
+<div class="text-page" style="font-size: 18px !important;">
   <div class="hero">
     <div class="row">
       <div class="column column--12 column__tablet--12 column__mobile--12">
