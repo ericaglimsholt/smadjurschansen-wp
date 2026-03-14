@@ -131,7 +131,7 @@ Template Name: Formulär test
 
   function send_form() {
     // Clear all previous error messages
-    $('.error-message').removeClass('show').addClass('hide');
+    $('.error-message').addClass('hide');
     
     // Get values
     let name = document.getElementById('name').value.trim();
@@ -155,69 +155,69 @@ Template Name: Formulär test
     let hasErrors = false;
     
     if (!name) {
-      $('#name').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#name').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!email) {
-      $('#email').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#email').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!phone) {
-      $('#phone').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#phone').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!address) {
-      $('#address').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#address').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!postnumber) {
-      $('#postnumber').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#postnumber').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!city) {
-      $('#city').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#city').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!animalName) {
-      $('#animal-name').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#animal-name').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!familySituation) {
-      $('#family-situation').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#family-situation').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!animalSituation) {
-      $('#animal-situation').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#animal-situation').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!animalAssemble) {
-      $('#animal-assemble').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#animal-assemble').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!animalFood) {
-      $('#animal-food').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#animal-food').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!animalQualities) {
-      $('#animal-qualities').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#animal-qualities').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!animalLiving) {
-      $('#animal-living').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#animal-living').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!animalSemester) {
-      $('#animal-semester').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#animal-semester').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     if (!animalInsurence) {
-      $('#animal-insurence').closest('label').find('.error-message').removeClass('hide').addClass('show');
+      $('#animal-insurence').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
     
     if (hasErrors) {
-      $('.callout.error').removeClass('hide').addClass('show');
-      $('.callout.success').removeClass('show').addClass('hide');
+      $('.callout.error').removeClass('hide');
+      $('.callout.success').addClass('hide');
       $('.callout.error')[0].scrollIntoView({ behavior: 'smooth' });
       return;
     }
@@ -246,29 +246,29 @@ Template Name: Formulär test
 
     $.post(ajaxurl, data, function(response) {
       if (response.success) {
-        $('.callout.error').removeClass('show').addClass('hide');
-        $('.callout.success').removeClass('hide').addClass('show');
+        $('.callout.error').addClass('hide');
+        $('.callout.success').removeClass('hide');
         
         // Hide form labels, button and scroll to success message
         $('form[name="adoption-interest"] label').addClass('hide');
         $('form[name="adoption-interest"] .button-wrapper').addClass('hide');
         $('.callout.success')[0].scrollIntoView({ behavior: 'smooth' });
       } else {
-        $('.callout.success').removeClass('show').addClass('hide');
-        $('.callout.error').removeClass('hide').addClass('show');
+        $('.callout.success').addClass('hide');
+        $('.callout.error').removeClass('hide');
         
         // Handle specific server errors
         if (response.data && response.data.field) {
           // Show specific field error if provided by server
-          $('#' + response.data.field).closest('label').find('.error-message').removeClass('hide').addClass('show');
+          $('#' + response.data.field).closest('label').find('.error-message').removeClass('hide');
         }
         
         // Scroll to error message
         $('.callout.error')[0].scrollIntoView({ behavior: 'smooth' });
       }
     }).fail(function() {
-      $('.callout.success').removeClass('show').addClass('hide');
-      $('.callout.error').removeClass('hide').addClass('show');
+      $('.callout.success').addClass('hide');
+      $('.callout.error').removeClass('hide');
       
       // Scroll to error message
       $('.callout.error')[0].scrollIntoView({ behavior: 'smooth' });
