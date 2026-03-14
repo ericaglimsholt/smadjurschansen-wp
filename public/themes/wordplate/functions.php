@@ -89,7 +89,7 @@ add_action('login_head', function () {
     );
 });
 
-// // Register custom SMTP credentials.
+// Register custom SMTP credentials.
 // add_action('phpmailer_init', function (PHPMailer $mailer) {
 //     $mailer->isSMTP();
 //     $mailer->SMTPAutoTLS = false;
@@ -104,8 +104,8 @@ add_action('login_head', function () {
 //     return $mailer;
 // });
 
-// add_filter('wp_mail_from', fn() => env('MAIL_FROM_ADDRESS', 'hello@example.com'));
-// add_filter('wp_mail_from_name', fn() => env('MAIL_FROM_NAME', 'Example'));
+add_filter('wp_mail_from', fn() => env('MAIL_FROM_ADDRESS', 'info@smadjurschansen.se'));
+add_filter('wp_mail_from_name', fn() => env('MAIL_FROM_NAME', 'Smådjurschansen'));
 
 // ACF JSON Save & Load
 add_filter('acf/settings/save_json', function ($path) {
