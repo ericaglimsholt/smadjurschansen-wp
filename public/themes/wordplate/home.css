@@ -1,3 +1,7 @@
+.home {
+  min-height: 100vh;
+}
+
 .home a {
   font-size: 18px;
   text-decoration: underline;
