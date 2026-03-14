@@ -179,7 +179,7 @@
           <?= $status; ?>
         </div>
 
-        <a class="button secondary" target="blank" href="https://www.smadjurschansen.se/soker-hem/om-adoption/">Läs om våra adoptionskrav</a>
+        <a class="button secondary" href="/adoptionskrav">Läs om våra adoptionskrav</a>
         <a class="button primary" href="https://djur.smadjurschansen.se/intresseanmalan/">Lämna en intresseanmälan</a>
       </div>
     </div>
