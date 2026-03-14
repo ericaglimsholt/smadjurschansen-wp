@@ -126,11 +126,28 @@ Template Name: Formulär test
     console.log('jQuery loaded and DOM ready!'); // Test if jQuery works
     console.log('Form found:', $('form[name="adoption-interest"]').length); // Test if form is found
     
+    // Test if submit button exists
+    console.log('Submit button found:', $('button[type="submit"]').length);
+    
+    // Add event listener to form submit
     $('form[name="adoption-interest"]').on('submit', function(e) {
       console.log('Form submit event triggered!'); // Debug
       e.preventDefault();
       send_form();
     });
+    
+    // Also add click event to submit button as backup
+    $('button[type="submit"]').on('click', function(e) {
+      console.log('Submit button clicked!'); // Debug
+      e.preventDefault();
+      send_form();
+    });
+    
+    // Test if we can manually trigger the functions
+    window.testForm = function() {
+      console.log('Manual test function called');
+      send_form();
+    };
   });
 
   function send_form() {
