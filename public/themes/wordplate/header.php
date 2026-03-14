@@ -21,12 +21,12 @@
 
     <div class="test">
         <div class="test-info">
-            <p>Just nu testar vi delar av vår nya hemsida. Därför ser det annorlunda ut.</p>
+            <p>Vår nya hemsida är under uppbyggnad och därför finns inte all information på plats ännu.</p>
         </div>
     </div>
 
     <header>
-        <a href="https://djur.smadjurschansen.se/">
+        <a href="/">
             <svg width="192" height="64" viewBox="0 0 192 64" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="192" height="64" fill="url(#pattern0_2124_14451)"/>
             <defs>
