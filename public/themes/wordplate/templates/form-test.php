@@ -180,6 +180,8 @@ Template Name: Formulär test
       'animal_insurence': animalInsurence
     };
 
+    console.log('Sending form with data:', data);
+
     $.post(ajaxurl, data, function(response) {
       if (response.success) {
         $('.callout.error').removeClass('show').addClass('hide');
