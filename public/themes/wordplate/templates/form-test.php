@@ -258,6 +258,7 @@ Template Name: Formulär test
         // Hide form labels, button and scroll to success message
         $('form[name="adoption-interest"] label').addClass('hide');
         $('form[name="adoption-interest"] .button-wrapper').addClass('hide');
+        $('button[type="submit"]').addClass('hide');
         $('.callout.success')[0].scrollIntoView({ behavior: 'smooth' });
       } else {
         $('.callout.success').addClass('hide');
