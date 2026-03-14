@@ -32,7 +32,7 @@ Template Name: Formulär test
         </div>
 
         <label>För- och efternamn
-          <input type="text" id="name" name="name" required value="Erica Glimsholt" />
+          <input type="text" id="name" name="name" required value="" />
           <div class="error-message hide">Vänligen ange både för- och efternamn</div>
         </label>
 
