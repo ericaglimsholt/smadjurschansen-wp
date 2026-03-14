@@ -164,7 +164,8 @@ function send_adoption_form() {
 
     if (!is_email($email)) {
         wp_send_json_error(array(
-            'message' => 'Ogiltig e-postadress'
+            'message' => 'Ogiltig e-postadress',
+            'field' => 'email'
         ));
         return;
     }
