@@ -130,7 +130,7 @@ add_action('after_setup_theme', function () {
 function send_adoption_form() {
 	check_ajax_referer('send_adoption_form', 'security');
     
-    // Get fields
+    // Get fields with fallback sanitization
     $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
     $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
     $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
@@ -138,15 +138,19 @@ function send_adoption_form() {
     $postnumber = isset($_POST['postnumber']) ? sanitize_text_field($_POST['postnumber']) : '';
     $city = isset($_POST['city']) ? sanitize_text_field($_POST['city']) : '';
     $animal_name = isset($_POST['animal_name']) ? sanitize_text_field($_POST['animal_name']) : '';
-    $family_situation = isset($_POST['family_situation']) ? sanitize_textarea_field($_POST['family_situation']) : '';
-    $animal_situation = isset($_POST['animal_situation']) ? sanitize_textarea_field($_POST['animal_situation']) : '';
-    $animal_assemble = isset($_POST['animal_assemble']) ? sanitize_textarea_field($_POST['animal_assemble']) : '';
-    $animal_bunny_friend = isset($_POST['animal_bunny_friend']) ? sanitize_textarea_field($_POST['animal_bunny_friend']) : '';
-    $animal_food = isset($_POST['animal_food']) ? sanitize_textarea_field($_POST['animal_food']) : '';
-    $animal_qualities = isset($_POST['animal_qualities']) ? sanitize_textarea_field($_POST['animal_qualities']) : '';
-    $animal_living = isset($_POST['animal_living']) ? sanitize_textarea_field($_POST['animal_living']) : '';
-    $animal_semester = isset($_POST['animal_semester']) ? sanitize_textarea_field($_POST['animal_semester']) : '';
-    $animal_insurence = isset($_POST['animal_insurence']) ? sanitize_textarea_field($_POST['animal_insurence']) : '';
+    
+    // Use sanitize_text_field as fallback for older WordPress versions
+    $animal_bunny_friend = isset($_POST['animal_bunny_friend']) ? sanitize_text_field($_POST['animal_bunny_friend']) : '';
+    
+    // For text areas, use custom sanitization if sanitize_textarea_field doesn't exist
+    $family_situation = isset($_POST['family_situation']) ? strip_tags($_POST['family_situation']) : '';
+    $animal_situation = isset($_POST['animal_situation']) ? strip_tags($_POST['animal_situation']) : '';
+    $animal_assemble = isset($_POST['animal_assemble']) ? strip_tags($_POST['animal_assemble']) : '';
+    $animal_food = isset($_POST['animal_food']) ? strip_tags($_POST['animal_food']) : '';
+    $animal_qualities = isset($_POST['animal_qualities']) ? strip_tags($_POST['animal_qualities']) : '';
+    $animal_living = isset($_POST['animal_living']) ? strip_tags($_POST['animal_living']) : '';
+    $animal_semester = isset($_POST['animal_semester']) ? strip_tags($_POST['animal_semester']) : '';
+    $animal_insurence = isset($_POST['animal_insurence']) ? strip_tags($_POST['animal_insurence']) : '';
 
     // Validate required fields
     if (!$name || !$email || !$phone || !$address || !$postnumber || !$city || 
