@@ -125,3 +125,95 @@ add_action('after_setup_theme', function () {
         flush_rewrite_rules();
     }
 });
+
+// Send form data from adoption interest form
+function send_adoption_form() {
+	check_ajax_referer('send_adoption_form', 'security');
+    
+    // Get fields
+    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
+    $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
+    $address = isset($_POST['address']) ? sanitize_text_field($_POST['address']) : '';
+    $postnumber = isset($_POST['postnumber']) ? sanitize_text_field($_POST['postnumber']) : '';
+    $city = isset($_POST['city']) ? sanitize_text_field($_POST['city']) : '';
+    $animal_name = isset($_POST['animal_name']) ? sanitize_text_field($_POST['animal_name']) : '';
+    $family_situation = isset($_POST['family_situation']) ? sanitize_textarea_field($_POST['family_situation']) : '';
+    $animal_situation = isset($_POST['animal_situation']) ? sanitize_textarea_field($_POST['animal_situation']) : '';
+    $animal_assemble = isset($_POST['animal_assemble']) ? sanitize_textarea_field($_POST['animal_assemble']) : '';
+    $animal_bunny_friend = isset($_POST['animal_bunny_friend']) ? sanitize_textarea_field($_POST['animal_bunny_friend']) : '';
+    $animal_food = isset($_POST['animal_food']) ? sanitize_textarea_field($_POST['animal_food']) : '';
+    $animal_qualities = isset($_POST['animal_qualities']) ? sanitize_textarea_field($_POST['animal_qualities']) : '';
+    $animal_living = isset($_POST['animal_living']) ? sanitize_textarea_field($_POST['animal_living']) : '';
+    $animal_semester = isset($_POST['animal_semester']) ? sanitize_textarea_field($_POST['animal_semester']) : '';
+    $animal_insurence = isset($_POST['animal_insurence']) ? sanitize_textarea_field($_POST['animal_insurence']) : '';
+
+    // Validate required fields
+    if (!$name || !$email || !$phone || !$address || !$postnumber || !$city || 
+        !$animal_name || !$family_situation || !$animal_situation || !$animal_assemble ||
+        !$animal_food || !$animal_qualities || !$animal_living || !$animal_semester || !$animal_insurence) {
+        wp_send_json_error(array(
+            'message' => 'Alla obligatoriska fält måste fyllas i'
+        ));
+        return;
+    }
+
+    if (!is_email($email)) {
+        wp_send_json_error(array(
+            'message' => 'Ogiltig e-postadress'
+        ));
+        return;
+    }
+
+    // Create email content
+    $to = 'erica@ericaglimsholt.com';
+    $subject = 'Ny intresseanmälan - ' . $animal_name . ' - ' . $name . ' (' . $email . ')';
+    
+    $message = "Ny intresseanmälan för adoption har skickats från hemsidan.\n\n";
+    $message .= "KONTAKTUPPGIFTER:\n";
+    $message .= "Namn: {$name}\n";
+    $message .= "E-post: {$email}\n";
+    $message .= "Telefon: {$phone}\n";
+    $message .= "Adress: {$address}\n";
+    $message .= "Postnummer: {$postnumber}\n";
+    $message .= "Ort: {$city}\n\n";
+    
+    $message .= "ADOPTIONSDETALJER:\n";
+    $message .= "Djur av intresse: {$animal_name}\n\n";
+    
+    $message .= "Familjesituation: {$family_situation}\n\n";
+    $message .= "Nuvarande djur: {$animal_situation}\n\n";
+    $message .= "Ihopsättning: {$animal_assemble}\n\n";
+    
+    if ($animal_bunny_friend) {
+        $message .= "Framtida artfrände: {$animal_bunny_friend}\n\n";
+    }
+    
+    $message .= "Djurets kost: {$animal_food}\n\n";
+    $message .= "Önskade egenskaper: {$animal_qualities}\n\n";
+    $message .= "Djurets boende: {$animal_living}\n\n";
+    $message .= "Semester/krissituation: {$animal_semester}\n\n";
+    $message .= "Försäkring: {$animal_insurence}\n\n";
+
+    // Set email headers
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'Reply-To: ' . $name . ' <' . $email . '>'
+    );
+
+    // Send email
+    $mail_sent = wp_mail($to, $subject, $message, $headers);
+
+    if ($mail_sent) {
+        wp_send_json_success(array(
+            'message' => 'Intresseanmälan skickad!'
+        ));
+    } else {
+        wp_send_json_error(array(
+            'message' => 'E-post kunde inte skickas. Försök igen senare.'
+        ));
+    }
+}
+
+add_action('wp_ajax_send_adoption_form', 'send_adoption_form');
+add_action('wp_ajax_nopriv_send_adoption_form', 'send_adoption_form');

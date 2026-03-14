@@ -206,18 +206,16 @@ h1, h2, h3, h4, h5, h6 {
 ========================= */
 
 button {
-  background-color: #A48181;
-  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+  font-family: 'DM Sans', sans-serif;
   font-weight: bold;
-  font-size: 16px;
-  color: white;
-  padding: 20px 60px;
-  border-radius: 4px;
-  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  padding: 14px 30px;
+  border-radius: 25px;
   transition: background-color 200ms ease;
   display: block;
-  letter-spacing: 1px;
-  border: none;
   cursor: pointer;
 }
 
@@ -239,6 +237,7 @@ a {
   font-size: 32px;
   position: relative;
   width: fit-content;
+  cursor: pointer;
 }
 
 a:hover {
@@ -617,4 +616,83 @@ header a svg {
 
 .status svg {
   margin-right: 5px;
+}
+
+/* =========================
+  FORM
+========================= */
+
+form {
+  margin-bottom: 100px;
+  max-width: 700px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+input {
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #C2C2C2;
+}
+
+input:focus {
+  outline: none;
+  border-color: #324D40;
+}
+
+input.error {
+  border-color: #743E26;
+}
+
+.error-message {
+  color: #743E26;
+  background-color: #FED1BC;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* =========================
+  VISABILITY
+========================= */
+
+.hide {
+  display: none;
+}
+
+/* =========================
+  CALLOUT
+========================= */
+
+.callout {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.callout.success {
+  background-color: #C0DECF;
+  color: #324D40;
+}
+
+.callout.error {
+  background-color: #FED1BC;
+  color: #743E26;
+}
+
+.callout h2 {
+  margin-bottom: 0;
+}
+
+.callout p {
+  margin-top: 10px;
 }
