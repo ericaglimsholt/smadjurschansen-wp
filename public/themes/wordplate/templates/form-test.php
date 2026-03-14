@@ -130,8 +130,8 @@ Template Name: Formulär test
   });
 
   function send_form() {
-    // Clear all previous error messages
-    $('.error-message').addClass('hide');
+    // Clear all previous field error messages only
+    $('label .error-message').addClass('hide');
     
     // Get values
     let name = document.getElementById('name').value.trim();
