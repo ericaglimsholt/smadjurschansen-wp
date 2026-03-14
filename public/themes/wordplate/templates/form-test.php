@@ -123,42 +123,23 @@ Template Name: Formulär test
   var ajaxurl = "<?php echo admin_url( 'admin-ajax.php' ); ?>";
 
   $(document).ready(function() {
-    console.log('jQuery loaded and DOM ready!'); // Test if jQuery works
-    console.log('Form found:', $('form[name="adoption-interest"]').length); // Test if form is found
-    
-    // Test if submit button exists
-    console.log('Submit button found:', $('button[type="submit"]').length);
-    
-    // Add event listener to form submit
     $('form[name="adoption-interest"]').on('submit', function(e) {
-      console.log('Form submit event triggered!'); // Debug
       e.preventDefault();
       send_form();
     });
     
-    // Also add click event to submit button as backup
     $('button[type="submit"]').on('click', function(e) {
-      console.log('Submit button clicked!'); // Debug
       e.preventDefault();
       send_form();
     });
-    
-    // Test if we can manually trigger the functions
-    window.testForm = function() {
-      console.log('Manual test function called');
-      send_form();
-    };
   });
 
   function send_form() {
-    console.log('send_form called!'); // Debug
-    
     // Clear all previous field error messages only
     $('label .error-message').addClass('hide');
     
     // Get values
     let name = document.getElementById('name').value.trim();
-    console.log('Name value:', name); // Debug
     
     let email = document.getElementById('email').value.trim();
     let phone = document.getElementById('phone').value.trim();
@@ -180,7 +161,6 @@ Template Name: Formulär test
     let hasErrors = false;
     
     if (!name) {
-      console.log('Name is empty, showing error'); // Debug
       $('#name').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
@@ -242,7 +222,6 @@ Template Name: Formulär test
     }
     
     if (hasErrors) {
-      console.log('Has errors, showing error callout'); // Debug
       $('.callout.error').removeClass('hide');
       $('.callout.success').addClass('hide');
       $('.callout.error')[0].scrollIntoView({ behavior: 'smooth' });
