@@ -19,7 +19,7 @@ Template Name: Text sida
     </div>
   </div>
 
-  <div class="row">
+  <div class="row second-row">
     <div class="column column--12 column__tablet--12 column__mobile--12">
       <?php the_content(); ?>
     </div>
