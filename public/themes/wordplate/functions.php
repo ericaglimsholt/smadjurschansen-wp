@@ -157,7 +157,8 @@ function send_adoption_form() {
     // Validate required fields
     if (!$name || !$email || !$phone || !$address || !$postnumber || !$city || 
         !$animal_name || !$family_situation || !$animal_situation || !$animal_assemble ||
-        !$animal_food || !$animal_qualities || !$animal_living || !$animal_semester || !$animal_insurence) {
+        !$animal_food || !$animal_qualities || !$animal_living || !$animal_semester || 
+        !$animal_insurence) {
         wp_send_json_error(array(
             'message' => 'Alla obligatoriska fält måste fyllas i'
         ));
@@ -201,6 +202,7 @@ function send_adoption_form() {
     $message .= "Djurets boende: \n{$animal_living}\n\n";
     $message .= "Semester/krissituation: \n{$animal_semester}\n\n";
     $message .= "Försäkring: \n{$animal_insurence}\n\n";
+    $message .= "GDPR-samtycke: Godkänt genom formulärsändning\n\n";
 
     // Set email headers
     $headers = array(

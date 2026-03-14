@@ -648,7 +648,7 @@ header a svg {
 
 form {
   margin-bottom: 100px;
-  max-width: 700px;
+  max-width: 800px;
 }
 
 label {
@@ -657,7 +657,7 @@ label {
   margin-bottom: 20px;
   font-size: 18px;
   line-height: 28px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 input {

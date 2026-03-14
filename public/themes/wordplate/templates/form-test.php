@@ -110,6 +110,10 @@ Template Name: Formulär test
           <div class="error-message hide">Vänligen ange hur ni tänker kring försäkring</div>
         </label>
 
+        <div class="gdpr-info">
+          <p>Genom att skicka detta formulär godkänner du att dina personuppgifter behandlas enligt våra <a href="/terms-and-conditions" target="_blank">användarvillkor</a> och <a href="/integritetspolicy" target="_blank">integritetspolicy</a>. Vi använder dina uppgifter för att kontakta dig angående din intresseanmälan.</p>
+        </div>
+
         <div class="button-wrapper">
           <button type="submit" class="button primary">Skicka intresseanmälan</button>
         </div>
