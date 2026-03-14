@@ -666,7 +666,7 @@ input.error {
 ========================= */
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 /* =========================
