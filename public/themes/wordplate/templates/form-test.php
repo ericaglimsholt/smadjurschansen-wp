@@ -130,11 +130,15 @@ Template Name: Formulär test
   });
 
   function send_form() {
+    console.log('send_form called!'); // Debug
+    
     // Clear all previous field error messages only
     $('label .error-message').addClass('hide');
     
     // Get values
     let name = document.getElementById('name').value.trim();
+    console.log('Name value:', name); // Debug
+    
     let email = document.getElementById('email').value.trim();
     let phone = document.getElementById('phone').value.trim();
     let address = document.getElementById('address').value.trim();
@@ -155,6 +159,7 @@ Template Name: Formulär test
     let hasErrors = false;
     
     if (!name) {
+      console.log('Name is empty, showing error'); // Debug
       $('#name').closest('label').find('.error-message').removeClass('hide');
       hasErrors = true;
     }
@@ -216,6 +221,7 @@ Template Name: Formulär test
     }
     
     if (hasErrors) {
+      console.log('Has errors, showing error callout'); // Debug
       $('.callout.error').removeClass('hide');
       $('.callout.success').addClass('hide');
       $('.callout.error')[0].scrollIntoView({ behavior: 'smooth' });
