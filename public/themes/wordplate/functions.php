@@ -183,21 +183,21 @@ function send_adoption_form() {
     $message .= "Ort: {$city}\n\n";
     
     $message .= "ADOPTIONSDETALJER:\n";
-    $message .= "Djur av intresse: {$animal_name}\n\n";
+    $message .= "Djur av intresse: \n{$animal_name}\n\n";
     
-    $message .= "Familjesituation: {$family_situation}\n\n";
-    $message .= "Nuvarande djur: {$animal_situation}\n\n";
-    $message .= "Ihopsättning: {$animal_assemble}\n\n";
+    $message .= "Familjesituation: \n{$family_situation}\n\n";
+    $message .= "Nuvarande djur: \n{$animal_situation}\n\n";
+    $message .= "Ihopsättning: \n{$animal_assemble}\n\n";
     
     if ($animal_bunny_friend) {
-        $message .= "Framtida artfrände: {$animal_bunny_friend}\n\n";
+        $message .= "Framtida artfrände: \n{$animal_bunny_friend}\n\n";
     }
     
-    $message .= "Djurets kost: {$animal_food}\n\n";
-    $message .= "Önskade egenskaper: {$animal_qualities}\n\n";
-    $message .= "Djurets boende: {$animal_living}\n\n";
-    $message .= "Semester/krissituation: {$animal_semester}\n\n";
-    $message .= "Försäkring: {$animal_insurence}\n\n";
+    $message .= "Djurets kost: \n{$animal_food}\n\n";
+    $message .= "Önskade egenskaper: \n{$animal_qualities}\n\n";
+    $message .= "Djurets boende: \n{$animal_living}\n\n";
+    $message .= "Semester/krissituation: \n{$animal_semester}\n\n";
+    $message .= "Försäkring: \n{$animal_insurence}\n\n";
 
     // Set email headers
     $headers = array(
