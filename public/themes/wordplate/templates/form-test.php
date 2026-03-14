@@ -123,7 +123,11 @@ Template Name: Formulär test
   var ajaxurl = "<?php echo admin_url( 'admin-ajax.php' ); ?>";
 
   $(document).ready(function() {
+    console.log('jQuery loaded and DOM ready!'); // Test if jQuery works
+    console.log('Form found:', $('form[name="adoption-interest"]').length); // Test if form is found
+    
     $('form[name="adoption-interest"]').on('submit', function(e) {
+      console.log('Form submit event triggered!'); // Debug
       e.preventDefault();
       send_form();
     });
