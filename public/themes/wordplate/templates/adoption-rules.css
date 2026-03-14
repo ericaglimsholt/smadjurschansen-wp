@@ -39,10 +39,27 @@
   margin-top: 0;
 }
 
+.adoption-rules .requirements-full-wrapper {
+  column-count: 2;
+  column-gap: 40px;
+}
+
+.adoption-rules .requirements-full-wrapper .requirements-wrapper {
+  width: 90%;
+  break-inside: avoid;
+  margin-bottom: 20px;
+  display: block;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
   .adoption-rules .requirements-wrapper {
     padding: 30px 20px 10px 20px;
     margin-bottom: 20px;
+  }
+
+  .adoption-rules .requirements-full-wrapper {
+    column-count: 1;
+    column-gap: 40px;
   }
 }
