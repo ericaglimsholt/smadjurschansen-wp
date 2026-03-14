@@ -25,3 +25,5 @@ Template Name: Text sida
     </div>
   </div>
 </div>
+
+<?php get_footer(); ?>

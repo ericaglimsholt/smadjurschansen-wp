@@ -118,6 +118,8 @@ Template Name: Formulär test
   </div>
 </div>
 
+<?php get_footer(); ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
   var ajaxurl = "<?php echo admin_url( 'admin-ajax.php' ); ?>";

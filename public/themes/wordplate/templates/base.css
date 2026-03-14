@@ -746,3 +746,24 @@ input.error {
 .second-row {
   margin-top: 260px;
 }
+
+/* =========================
+  FOOTER
+========================= */
+
+footer {
+  background-color: #C0DECF;
+  padding: 10px;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer a {
+  font-size: 18px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

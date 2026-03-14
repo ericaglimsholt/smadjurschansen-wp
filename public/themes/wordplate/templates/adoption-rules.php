@@ -216,3 +216,5 @@ Template Name: Adoptionskrav
   </div>
 
 </div>
+
+<?php get_footer(); ?>

@@ -98,3 +98,5 @@ if ($the_query->have_posts()) {
     <?php wp_reset_query(); ?>
   </div>
 </div>
+
+<?php get_footer(); ?>
