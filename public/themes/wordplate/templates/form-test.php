@@ -185,8 +185,9 @@ Template Name: Formulär test
         $('.callout.error').removeClass('show').addClass('hide');
         $('.callout.success').removeClass('hide').addClass('show');
         
-        // Hide form labels and scroll to success message
+        // Hide form labels, button and scroll to success message
         $('form[name="adoption-interest"] label').addClass('hide');
+        $('form[name="adoption-interest"] .button-wrapper').addClass('hide');
         $('.callout.success')[0].scrollIntoView({ behavior: 'smooth' });
       } else {
         $('.callout.success').removeClass('show').addClass('hide');
