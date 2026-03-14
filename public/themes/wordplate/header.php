@@ -39,12 +39,14 @@
         </a>
 
         <!-- Desktop navigation -->
-         <div class="dropdown-menu hide-for-small">
-             <div class="navigation-wrapper">
-                <a class="button primary">
-                    Adoptera ett djur
-                </a>
-                <?php wp_nav_menu(['theme_location' => 'left-navigation']); ?>
+        <div style="display: flex;">
+            <?php wp_nav_menu(['theme_location' => 'left-navigation']); ?>
+             <div class="dropdown-menu hide-for-small">
+                 <div class="navigation-wrapper">
+                     <a class="button primary">
+                         Adoptera ett djur
+                     </a>
+                </div>
                 <div class="dropdown-content">
                     <?php wp_nav_menu(['theme_location' => 'navigation']); ?>
                 </div>
