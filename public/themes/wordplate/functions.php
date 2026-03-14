@@ -174,7 +174,7 @@ function send_adoption_form() {
     }
 
     // Create email content
-    $to = 'erica@ericaglimsholt.com';
+    $to = 'info@smadjurschansen.se';
     $subject = 'Ny intresseanmälan - ' . $animal_name . ' - ' . $name . ' (' . $email . ')';
     
     $message = "Ny intresseanmälan för adoption har skickats från hemsidan.\n\n";
