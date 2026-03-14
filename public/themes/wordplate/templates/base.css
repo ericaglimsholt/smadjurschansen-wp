@@ -759,10 +759,12 @@ footer {
 
 footer ul {
   list-style-type: none;
+  display: flex;
 }
 
 footer a {
   font-size: 18px;
+  margin-right: 20px;
 }
 
 footer a:hover {
