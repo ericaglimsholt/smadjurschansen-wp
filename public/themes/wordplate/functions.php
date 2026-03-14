@@ -12,6 +12,7 @@ add_action('after_setup_theme', function () {
 
     register_nav_menus([
         'navigation' => __('Navigation'),
+        'left-navigation' => __('Navigation vänster'),
     ]);
 });
 

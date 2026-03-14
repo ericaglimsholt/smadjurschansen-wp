@@ -4,6 +4,7 @@
 
 .adoption-rules h2 {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .adoption-rules h3 {
@@ -12,7 +13,7 @@
 }
 
 .adoption-rules .second-row {
-  margin-top: 280px;
+  margin-top: 260px;
 }
 
 .adoption-rules .requirements-wrapper {

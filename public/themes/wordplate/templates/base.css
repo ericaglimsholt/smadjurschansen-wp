@@ -382,6 +382,29 @@ header {
   align-items: center;
 }
 
+header .navigation-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+header .menu-vanster-meny-container {
+  margin-right: 30px;
+}
+
+header ul {
+  list-style-type: none;
+}
+
+header #menu-vanster-meny a {
+  font-size: 18px;
+  text-decoration: none;
+}
+
+header #menu-vanster-meny a:hover {
+  text-decoration: underline;
+}
+
 
 /* Header Styling */
 header {

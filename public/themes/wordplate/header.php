@@ -40,12 +40,14 @@
 
         <!-- Desktop navigation -->
          <div class="dropdown-menu hide-for-small">
-            <a class="button primary">
-                Adoptera ett djur
-            </a>
-            
-            <div class="dropdown-content">
-                <?php wp_nav_menu(['theme_location' => 'navigation']); ?>
+             <div class="navigation-wrapper">
+                <a class="button primary">
+                    Adoptera ett djur
+                </a>
+                <?php wp_nav_menu(['theme_location' => 'left-navigation']); ?>
+                <div class="dropdown-content">
+                    <?php wp_nav_menu(['theme_location' => 'navigation']); ?>
+                </div>
             </div>
         </div>
 
