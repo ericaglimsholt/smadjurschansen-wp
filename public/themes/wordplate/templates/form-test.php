@@ -37,76 +37,76 @@ Template Name: Formulär test
         </label>
 
         <label>E-post
-          <input type="email" id="email" name="email" required value="ericaglimsholt@gmail.com" />
+          <input type="email" id="email" name="email" required value="" />
           <div class="error-message hide">Vänligen ange din e-post adress</div>
         </label>
 
         <label>Telefon
-          <input type="number" id="phone" name="phone" required value="0766334774" />
+          <input type="number" id="phone" name="phone" required value="" />
           <div class="error-message hide">Vänligen ange ditt telefonnummer</div>
         </label>
 
         <label>Postadress
-          <input type="text" id="address" name="address" required value="Hjalmar Brantingsgatan 23C" />
+          <input type="text" id="address" name="address" required value="" />
           <div class="error-message hide">Vänligen ange din postadress</div>
         </label>
 
         <label>Postnummer
-          <input type="text" id="postnumber" name="postnumber" required value="41739" />
+          <input type="text" id="postnumber" name="postnumber" required value="" />
           <div class="error-message hide">Vänligen ange ditt postnummer</div>
         </label>
 
         <label>Ort
-          <input type="text" id="city" name="city" required value="Göteborg" />
+          <input type="text" id="city" name="city" required value="" />
           <div class="error-message hide">Vänligen ange din ort</div>
         </label>
 
         <label>Vad är namnet/namnen på de djur ni är intresserade av att adoptera?
-          <input type="text" id="animal-name" name="animal-name" required value="Stina" />
+          <input type="text" id="animal-name" name="animal-name" required value="" />
           <div class="error-message hide">Vänligen ange namnet/namn på det djur du vill adoptera</div>
         </label>
 
         <label>Hur ser familjen ut? Om barn finns, ange ålder
-          <input type="text" id="family-situation" name="family-situation" required value="Ja, bebis på fyra månader" />
+          <input type="text" id="family-situation" name="family-situation" required value="" />
           <div class="error-message hide">Vänligen fyll i hur familjen ser ut</div>
         </label>
 
         <label>Vilka djur finns idag i familjen? Beskriv dem
-          <input type="text" id="animal-situation" name="animal-situation" required value="Finns inga djur" />
+          <input type="text" id="animal-situation" name="animal-situation" required value="" />
           <div class="error-message hide">Vänligen ange om djur finns i hushållet</div>
         </label>
 
         <label>Om ni redan har en eller flera av det djurslaget ni tänkt adoptera, beskriv hur ni har tänkt utföra ihopsättningen
-          <input type="text" id="animal-assemble" name="animal-assemble" required value="Så snart som möjligt" />
+          <input type="text" id="animal-assemble" name="animal-assemble" required value="" />
           <div class="error-message hide">Vänligen ange hur ni tänkt utföra ihopsättning</div>
         </label>
 
         <label>Gäller endast intresseanmälan kanin: om ni inte redan har en eller flera kaniner hemma, hur ser era tankar ut kring att skaffa fler kaniner i framtiden?
-          <input type="text" id="animal-bunny-friend" name="animal-bunny-friend" value="Ska skaffa en till" />
+          <input type="text" id="animal-bunny-friend" name="animal-bunny-friend" value="" />
         </label>
 
         <label>Beskriv så utförligt som möjligt hur djurets kost kommer se ut
-          <input type="text" id="animal-food" name="animal-food" required value="God mat" />
+          <input type="text" id="animal-food" name="animal-food" required value="" />
           <div class="error-message hide">Vänligen ange djurets kost hos er</div>
         </label>
 
         <label>Vilka egenskaper önskar ni hos djuret?
-          <input type="text" id="animal-qualities" name="animal-qualities" required value="Myspöl" />
+          <input type="text" id="animal-qualities" name="animal-qualities" required value="" />
           <div class="error-message hide">Vänligen ange vad för egenskaper ni önskar hos djuret</div>
         </label>
 
         <label>Beskriv hur djurets boende skulle se ut hos er
-          <input type="text" id="animal-living" name="animal-living" required value="Frigående i lägenheten" />
+          <input type="text" id="animal-living" name="animal-living" required value="" />
           <div class="error-message hide">Vänligen ange hur djuret skulle bo hos er</div>
         </label>
 
         <label>Vem tar hand om djuret vid semester eller krissituation?
-          <input type="text" id="animal-semester" name="animal-semester" required value="Vänner" />
+          <input type="text" id="animal-semester" name="animal-semester" required value="" />
           <div class="error-message hide">Vänligen ange vem som tar hand om djuret när ni inte är hemma/har möjlighet</div>
         </label>
 
         <label>Vill ni ta över djurets försäkring i Agria om sådan finnes? Om inte, har ni tänkt försäkra i annat bolag? Om inte, hur ser er plan ut i det fallet djuret skulle bli sjukt och kräva veterinärvård?
-          <input type="text" id="animal-insurence" name="animal-insurence" required value="Jag vill ta över den" />
+          <input type="text" id="animal-insurence" name="animal-insurence" required value="" />
           <div class="error-message hide">Vänligen ange hur ni tänker kring försäkring</div>
         </label>
 
