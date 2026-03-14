@@ -185,15 +185,22 @@ Template Name: Formulär test
         $('.callout.error').removeClass('show').addClass('hide');
         $('.callout.success').removeClass('hide').addClass('show');
         
-        // Reset form
-        $('form[name="adoption-interest"]')[0].reset();
+        // Hide form and scroll to success message
+        $('form[name="adoption-interest"]').addClass('hide');
+        $('.callout.success')[0].scrollIntoView({ behavior: 'smooth' });
       } else {
         $('.callout.success').removeClass('show').addClass('hide');
         $('.callout.error').removeClass('hide').addClass('show');
+        
+        // Scroll to error message
+        $('.callout.error')[0].scrollIntoView({ behavior: 'smooth' });
       }
     }).fail(function() {
       $('.callout.success').removeClass('show').addClass('hide');
       $('.callout.error').removeClass('hide').addClass('show');
+      
+      // Scroll to error message
+      $('.callout.error')[0].scrollIntoView({ behavior: 'smooth' });
     });
   }
 </script>
