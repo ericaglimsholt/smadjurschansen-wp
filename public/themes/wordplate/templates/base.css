@@ -131,7 +131,7 @@ strong {
 
 p {
   line-height: 27px;
-  font-size: 18px;
+  font-size: 18px !important;
   color: var(--text-primary);
   font-family: "DM Sans", sans-serif;
   font-weight: 300;
